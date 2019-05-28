@@ -1,0 +1,30 @@
+df1 = data.frame(CustId = c(1:6), Product = c(rep("TV", 3), rep("Radio", 3)))
+df2 = data.frame(CustId = c(2, 4, 6), State = c(rep("Texas", 2), rep("NYC", 1)))
+df1 #left table
+df2 #right table
+
+#Problem1
+#Inner Join to return only the rows of the left table having match
+library(dplyr)
+inner_join(df1,df2, by=c("CustId"="CustId"))
+
+#FullJoin
+full_join(df1,df2,by=c("CustId"="CustId"))
+
+#Left Join
+left_join(df1, df2, by="CustId")
+
+#right Join
+right_join(df1,df2, by="CustId")
+
+
+#Problem2
+#Cartesian Join/Product Join
+merge(x=df1, y=df2, by=NULL)
+
+
+#Semi Join
+semi_join(df1,df2)
+
+#anti join
+anti_join(df1, df2)
